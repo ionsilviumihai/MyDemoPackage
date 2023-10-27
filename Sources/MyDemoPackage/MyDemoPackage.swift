@@ -2,6 +2,8 @@ import CryptoKit
 
 public struct MyDemoPackage {
     
+    public init() {}
+    
     public func caesarCipher(message: String, shift: Int, encrypt: Bool) -> String {
         var result = ""
 

@@ -4,20 +4,21 @@ public struct MyDemoPackage {
     
     public init() {}
     
-    public func caesarCipher(message: String, shift: Int, encrypt: Bool) -> String {
+    func caesarCipher(message: String, shift: Int, encrypt: Bool) -> String {
         var result = ""
-
+        
         for character in message {
             if let scalar = character.unicodeScalars.first {
                 let unicode = Int(scalar.value)
                 var shiftedUnicode = unicode
                 if character.isLetter {
+                    let shiftValue = encrypt ? shift : -shift
+                    shiftedUnicode += shiftValue
+                    
                     if character.isUppercase {
-                        shiftedUnicode = (unicode - 65) + shift
-                        shiftedUnicode = encrypt ? (shiftedUnicode % 26 + 26) % 26 + 65 : (shiftedUnicode % 26 + 26) % 26 + 65
+                        shiftedUnicode = (shiftedUnicode - 65 + 26) % 26 + 65
                     } else {
-                        shiftedUnicode = (unicode - 97) + shift
-                        shiftedUnicode = encrypt ? (shiftedUnicode % 26 + 26) % 26 + 97 : (shiftedUnicode % 26 + 26) % 26 + 97
+                        shiftedUnicode = (shiftedUnicode - 97 + 26) % 26 + 97
                     }
                     result.append(Character(UnicodeScalar(shiftedUnicode)!))
                 } else {
@@ -27,7 +28,7 @@ public struct MyDemoPackage {
                 result.append(character)
             }
         }
-
+        
         return result
     }
 }

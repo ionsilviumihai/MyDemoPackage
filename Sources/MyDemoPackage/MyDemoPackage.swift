@@ -1,6 +1,13 @@
 public struct MyDemoPackage {
-    public private(set) var text = "Hello, World!"
+    private(set) var text: String?
 
-    public init() {
+    public init(
+        text: String
+    ) {
+        self.text = text
+    }
+    
+    public func saySomething() -> String {
+        return "MyDemoPackage: \(text ?? "")"
     }
 }

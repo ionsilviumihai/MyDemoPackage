@@ -6,6 +6,6 @@ final class MyDemoPackageTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(MyDemoPackage().text, "Hello, World!")
+        XCTAssertEqual(MyDemoPackage(text: "Hello, World!").saySomething(), "MyDemoPackage: Hello, World!")
     }
 }

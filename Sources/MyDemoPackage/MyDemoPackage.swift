@@ -4,7 +4,7 @@ public struct MyDemoPackage {
     
     public init() {}
     
-    func caesarCipher(message: String, shift: Int, encrypt: Bool) -> String {
+    public func caesarCipher(message: String, shift: Int, encrypt: Bool) -> String {
         var result = ""
         
         for character in message {
